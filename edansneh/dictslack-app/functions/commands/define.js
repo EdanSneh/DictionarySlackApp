@@ -1,20 +1,6 @@
 const lib = require('lib')({token: process.env.STDLIB_TOKEN});
 
-// path.basename('C:\\stdlin\\edansneh\\slack-app\\jquery.js');
-// const path = require('path');
-// var filename = path.basename('/Users/edansneh/stdlib/edansneh/slack-app/jquery.js');
-// console.log(filename);
-// var $ = require('jquery');
-// console.log($);
-// var request = require('ajax-request');
-// console.log(request);
-// request({
-//   method: "POST",
-//   url: "~/scrapedictionry.py",
-//   data: {param: "hello"}
-// }).done(function(o) {
-//    alert("sucess");
-// });
+
 
 /**
 * /hello
@@ -34,7 +20,8 @@ const lib = require('lib')({token: process.env.STDLIB_TOKEN});
 */
 module.exports = (user, channel, text = 'No Results Found', command = {}, botToken = null, callback) => {
 
-
+	var spawn = require("child_process").spawn;
+	var process = spawn('python',[])
   callback(null, {
     response_type: 'in_channel',    
     text: `${text}: `
